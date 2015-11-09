@@ -1,5 +1,7 @@
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -122,7 +124,7 @@ public class CaesarFrame extends JFrame {
 			if (inputarray[i]==' '){}
 			else{
 				int charnum = inputarray[i];
-				inputarray[i]=(char)('A'+(((charnum-'A')-t)%26));
+				inputarray[i]=(char)('A'+(((charnum+'A')-t)%26));
 			}
 		}
 		String s=new String(inputarray);
@@ -144,6 +146,8 @@ public class CaesarFrame extends JFrame {
 		this.setSize(400,110);
 		this.setResizable(true);
 		this.setLayout(caesarlayout);
+		Dimension SCREEN = Toolkit.getDefaultToolkit().getScreenSize();
+		this.setLocationRelativeTo(null);
 	}
 
 	public static void main(String[] args){
